@@ -1,4 +1,4 @@
-# dbb-demo
+# demodb-docker
 
 Run a postgres instance in Docker and initially load the flight demo database:
 
