@@ -1,12 +1,10 @@
 version: "3.9"
 services:
-
   postgres:
     build: docker/postgres
     ports:
       - "${POSTGRES_PORT}:5432"
     environment:
-      &env
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -14,14 +12,7 @@ services:
       - ${PWD}/volumes/postgres:/var/lib/postgresql/data:delegated
     healthcheck:
       test:
-        [
-          "CMD",
-          "pg_isready",
-          "-d",
-          "${POSTGRES_DB}",
-          "-U",
-          "${POSTGRES_USER}"
-        ]
+        ["CMD", "pg_isready", "-d", "${POSTGRES_DB}", "-U", "${POSTGRES_USER}"]
       interval: 5s
       retries: 5
     restart: always

@@ -4,6 +4,7 @@ Run a postgres instance in Docker and initially load the flight demo database:
 
 ```sh
 docker compose up -d
+docker compose logs -f
 ```
 
 Now connect to the database on localhost using the port and credentials from the `.env` file.
@@ -26,4 +27,3 @@ docker compose build --no-cache
 - [postgres](https://www.postgresql.org)
 - [docker compose](https://docs.docker.com/compose/)
 - [demodb](https://postgrespro.com/community/demodb)
-
